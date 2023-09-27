@@ -1,0 +1,45 @@
+.instagram-post {
+    width: 600px;
+    margin: auto;
+    border: 1px solid #ccc;
+    font-family: Arial, sans-serif;
+}
+
+.profile-section, .actions-section, .likes-section, .caption-section, .comments-section {
+    padding: 10px;
+}
+
+.profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.username, .location {
+    font-weight: bold;
+}
+
+.post-image {
+    width: 100%;
+    height: auto;
+}
+
+.actions-section button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.likes-count, .caption-text {
+    font-weight: bold;
+}
+
+.comment {
+    margin-top: 5px;
+}
+
+.comment-username {
+    font-weight: bold;
+}
