@@ -1,45 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instagram Post</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="InstagramPost.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/89e26ff049.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-
-<div class="instagram-post">
-    <div class="profile-section">
-        <img class="profile-picture" src="/Images/html5.svg" alt="Profile Picture">
-        <span class="username">HTML5</span>
-        <span class="location">Rigoberto</span>
-    </div>
-
-    <div class="image-section">
-        <img class="post-image" src="/Images/img2.jpg" alt="Post Image">
-    </div>
-
-    <div class="actions-section">
-        <button class="like-button">Like</button>
-        <button class="comment-button">Comment</button>
-        <button class="share-button">Share</button>
-    </div>
-
-    <div class="likes-section">
-        <span class="likes-count">123 likes</span>
-    </div>
-
-    <div class="caption-section">
-        <span class="caption-text">This is a caption for the Instagram post.</span>
-    </div>
-
-    <div class="comments-section">
-        <div class="comment">
-            <span class="comment-username">user1</span>
-            <span class="comment-text">Great post!</span>
+    <div class="container">
+        <div class="post">
+            <div class="post-header">
+                <div class="user-info">
+                    <img class="profile-pic" src="/Images/html5.svg" alt="Profile Picture">
+                    <div class="user-text">
+                        <h2 class="post-title"><b>HTML5</b></h2>
+                        <p>Shaznay</p>
+                    </div>
+                </div>
+                <div class="options">
+                    <img src="/Images/ellipsis.svg" alt="Options">
+                </div>
+            </div>
+            <div class="image-section">
+                <img src="/Images/img2.jpg" alt="Post Image">
+            </div>
+            <div class="icons-header">
+                <div class="left-icons">
+                    <img src="/Images/heart.svg" alt="Heart">
+                    <img src="/Images/comment.svg" alt="Comment">
+                    <img src="/Images/paper-plane.svg" alt="Paper Plane">
+                </div>
+                <div class="right-icon">
+                    <img src="/Images/bookmark.svg" alt="Bookmark">
+                </div>
+            </div>
+            <div class="post-body">
+                <p>Liked by <b>4GeeksAcademt</b>, <b>html5</b>, <b>Web</b>, and <b>100, 000 others</b></p>
+                <p>Taking a bite out of the Big Apple, one skyline view at a time. From the iconic landmarks to the hidden gems, every corner tells a story. New York, you're an endless adventure wrapped in city lights.</p>
+            </div>
         </div>
     </div>
-</div>
-
 </body>
+
 </html>
