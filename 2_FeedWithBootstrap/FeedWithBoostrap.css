@@ -1,0 +1,41 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navbar-brand svg {
+    margin-top: -3px;
+}
+
+.nav-link {
+    color: black !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: blue !important;
+}
+
+.nav-link.active {
+    color: blue !important;
+    border-bottom: 2px solid blue;
+}
+
+.img {
+    object-fit: cover;
+    height: 350px;
+    width: 100%;
+}
+
+.container.my-4 {
+    margin-bottom: 2rem !important;
+}
+
+.tab-content {
+    margin-bottom: 2rem;
+}
