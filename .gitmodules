@@ -1,6 +1,3 @@
 [submodule "4_CommandLine/Shaznay-S_Excuse_Generator"]
 	path = 4_CommandLine/Shaznay-S_Excuse_Generator
 	url = https://github.com/Shaznay-S/Shaznay-S_Excuse_Generator.git
-[submodule "4_CommandLine/excercise-terminal-challenge"]
-	path = 4_CommandLine/excercise-terminal-challenge
-	url = https://github.com/breatheco-de/excercise-terminal-challenge.git
