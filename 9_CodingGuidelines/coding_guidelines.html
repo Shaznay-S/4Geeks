@@ -1,0 +1,76 @@
+<!--Edited the first project, the Instagram Post. Added more features: lightbox, dynamic buttons for the like, comment, and share, etc.-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Post</title>
+    <link rel="stylesheet" type="text/css" href="coding_guidelines.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/89e26ff049.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="post">
+            <div class="post-header">
+                <div class="user-info">
+                    <img class="profile-pic" src="/Images/html5.svg" alt="Profile Picture">
+                    <div class="user-text">
+                        <h2 class="post-title"><b>HTML5</b></h2>
+                        <p>Shaznay</p>
+                    </div>
+                </div>
+                <div class="options">
+                    <img src="/Images/ellipsis.svg" alt="Options">
+                </div>
+            </div>
+            <div class="image-section">
+                <a href="#lightbox" class="image-trigger">
+                    <img src="/Images/img2.jpg" alt="Post Image">
+                </a>
+            </div>
+            <div class="icons-header">
+                <div class="left-icons">
+                    <button class="like-btn" aria-label="Like post">
+                        <img class="heart-icon" src="/Images/heart.svg" alt="Like">
+                    </button>
+                    <button class="comment-btn" aria-label="Comment on post">
+                        <img class="comment-icon" src="/Images/comment.svg" alt="Comment">
+                    </button>
+                    <button class="share-btn" aria-label="Share post">
+                        <img class="share-icon" src="/Images/paper-plane.svg" alt="Share">
+                    </button>
+                </div>
+                <div class="right-icon">
+                    <button class="bookmark-btn" aria-label="Bookmark post">
+                        <img class="bookmark-icon" src="/Images/bookmark.svg" alt="Bookmark">
+                    </button>
+                </div>
+            </div>
+            <div class="post-body">
+                <p>Liked by <b>4GeeksAcademt</b>, <b>html5</b>, <b>Web</b>, and <b>100, 000 others</b></p>
+                <p>Taking a bite out of the Big Apple, one skyline view at a time. From the iconic landmarks to the hidden gems, every corner tells a story. New York, you're an endless adventure wrapped in city lights.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- The comment section container, initially hidden -->
+    <div class="comment-section">
+        <textarea placeholder="Add a comment..."></textarea>
+        <button type="button">Post Comment</button>
+    </div>
+
+    <!-- Lightbox container, initially hidden -->
+    <div id="lightbox" class="lightbox">
+    </div>
+
+    <!-- Link to your external JavaScript file -->
+    <script src="coding_guidelines.js"></script>
+
+</body>
+
+</html>
