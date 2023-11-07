@@ -5,15 +5,15 @@ let oneEuroIs = {
 }
 
 function fromDollarToYen(dollar) {
-    return dollar * (oneEuroIs.JPY / oneEuroIs.USD);
+    return Number((dollar * (oneEuroIs.JPY / oneEuroIs.USD)).toFixed(2));
 }
 
 function fromEuroToDollar(euro) {
-    return euro * oneEuroIs.USD;
+    return Number((euro * oneEuroIs.USD).toFixed(2));
 }
 
 function fromYenToPound(yen) {
-    return yen * (oneEuroIs.GBP / oneEuroIs.JPY);
+    return Number((yen * (oneEuroIs.GBP / oneEuroIs.JPY)).toFixed(2));
 }
 
 
