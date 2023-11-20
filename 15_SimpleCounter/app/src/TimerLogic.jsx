@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 
 export const useTimer = () => {
   const [secondsElapsed, setSecondsElapsed] = useState(0);
-  const [alertTime, setAlertTime] = useState(null); // Initially, there is no alert time
+  const [alertTime, setAlertTime] = useState(null);
   const [isActive, setIsActive] = useState(false);
 
   const tick = useCallback(() => {
@@ -13,7 +13,7 @@ export const useTimer = () => {
     if (secondsElapsed === alertTime) {
       alert(`Time reached: ${alertTime} seconds`);
       setIsActive(false);
-      setSecondsElapsed(0); // Optionally reset the timer
+      setSecondsElapsed(0); 
     }
   }, [secondsElapsed, alertTime]);
 
