@@ -1,19 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import SecondsCounter from './SecondsCounter'; // Import the SecondsCounter component
+import SecondsCounter from './SecondsCounter';
+import { useTimer } from './TimerLogic';
 
 function App() {
+  const {
+    secondsElapsed,
+    alertTime,
+    setAlertTime,
+    startTimer,
+    stopTimer,
+    resetTimer,
+    resumeTimer
+  } = useTimer();
+
+  const handleChange = (event) => {
+    setAlertTime(Number(event.target.value));
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        {/* Use the SecondsCounter component and pass props as needed */}
-        <SecondsCounter initialSeconds={0} alertAt={10} />
-        <p>
-          This is a simple seconds counter app.
-        </p>
+        <SecondsCounter seconds={secondsElapsed} />
+        <input
+          className="input-alert-time"
+          type="number"
+          value={alertTime || ''}
+          onChange={handleChange}
+          placeholder="Set alert time"
+        />
+        <div>
+          <button className="button" onClick={startTimer}>Start</button>
+          <button className="button" onClick={stopTimer}>Stop</button>
+          <button className="button" onClick={resetTimer}>Reset</button>
+          <button className="button" onClick={resumeTimer}>Resume</button>
+        </div>
+        <p className="description-text">This is a simple seconds counter app.</p>
       </header>
     </div>
   );
 }
-
 export default App;

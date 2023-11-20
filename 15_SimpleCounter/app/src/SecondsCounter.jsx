@@ -1,66 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
+import './SecondsCounter.css';
+import clockIcon from './clock-regular.svg'; // Import the SVG as a module
 
-const SecondsCounter = ({ initialSeconds, alertAt }) => {
-  const [seconds, setSeconds] = useState(initialSeconds);
-  const [isActive, setIsActive] = useState(true);
+const SecondsCounter = ({ seconds }) => {
+    // Format seconds to at least 2 digits, add more if you need
+    const formattedSeconds = String(seconds).padStart(2, '0');
 
-  useEffect(() => {
-    let interval = null;
+    // Split the formattedSeconds into an array of single characters
+    const digits = formattedSeconds.split('');
 
-    if (isActive) {
-      interval = setInterval(() => {
-        setSeconds((seconds) => seconds + 1);
-      }, 1000);
-    } else if (!isActive && seconds !== 0) {
-      clearInterval(interval);
-    }
-
-    if (seconds === alertAt) {
-      alert(`You've reached ${alertAt} seconds.`);
-    }
-
-    return () => clearInterval(interval);
-  }, [isActive, seconds, alertAt]);
-
-  const reset = () => {
-    setSeconds(0);
-    setIsActive(true);
-  };
-
-  const stop = () => {
-    setIsActive(false);
-  };
-
-  const resume = () => {
-    setIsActive(true);
-  };
-
-  const countdown = () => {
-    setIsActive(true);
-    setSeconds(initialSeconds);
-  };
-
-  return (
-    <div>
-      <FontAwesomeIcon icon={faClock} />{' '}
-      {seconds}
-      <div>
-        <button onClick={stop}>Stop</button>
-        <button onClick={reset}>Reset</button>
-        <button onClick={resume}>Resume</button>
-        <button onClick={countdown}>Countdown</button>
-      </div>
-    </div>
-  );
+    return (
+        <div className="seconds-counter">
+            {/* Wrap the clock icon in a container similar to the digits */}
+            <div className="digit-container">
+                <img src={clockIcon} alt="Clock" className="clock-icon" />
+            </div>
+            {/* Map over each digit and wrap it in a span */}
+            {digits.map((digit, index) => (
+                <div key={index} className="digit-container">{digit}</div>
+            ))}
+        </div>
+    );
 };
-
-// Render the SecondsCounter into the app.
-ReactDOM.render(
-  <SecondsCounter initialSeconds={0} alertAt={10} />,
-  document.getElementById('app')
-);
 
 export default SecondsCounter;

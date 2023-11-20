@@ -43,11 +43,11 @@
 .delete-icon {
   color: #888;
   cursor: pointer;
-  visibility: hidden; /* Hide by default */
+  visibility: hidden;
 }
 
 .task-item:hover .delete-icon {
-  visibility: visible; /* Show on hover */
+  visibility: visible; 
 }
 
 /* Placeholder when there are no tasks */
@@ -58,6 +58,6 @@
 }
 
 .x-mark-icon {
-  width: 20px; 
+  width: 20px;
   height: 20px;
 }

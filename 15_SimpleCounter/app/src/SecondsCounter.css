@@ -1,0 +1,29 @@
+.seconds-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+.digit-container {
+    background: #333;
+    color: #fff;
+    font-family: 'Digital', sans-serif;
+    font-size: 4rem;
+    margin: 0 5px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
+    text-align: center;
+}
+
+.clock-icon {
+    width: 75px; 
+    height: auto;
+}
