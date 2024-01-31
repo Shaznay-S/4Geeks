@@ -30,6 +30,7 @@ const useGlobalState = () => {
       .catch(error => console.error("Error loading contacts:", error));
   };
 
+  /*
   const addContact = (contact, agendaSlug) => {
     fetch('https://playground.4geeks.com/apis/fake/contact/', {
       method: 'POST',
@@ -43,15 +44,40 @@ const useGlobalState = () => {
     })
     .then(response => response.json())
     .then(addedContact => {
-      setStore({
+      console.log('Added contact:', addedContact);
+      setState(prevState => ({
+        ...prevState,
         contacts: {
-          ...state.contacts,
-          [agendaSlug]: [...state.contacts[agendaSlug], addedContact]
+         ...prevState.contacts,
+          [agendaSlug]: [...prevState.contacts[agendaSlug], addedContact]
         }
-      });
+      }));
     })
     .catch(error => console.error("Error adding contact:", error));
   };
+  */
+
+  const addContact = (contact, agendaSlug) => {
+    fetch('https://playground.4geeks.com/apis/fake/contact/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...contact, agenda_slug: agendaSlug })
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Server responded with status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(addedContact => {
+      console.log('Added contact:', addedContact);
+      // State update logic
+    })
+    .catch(error => {
+      console.error("Error adding contact:", error);
+    });
+  };
+
 
   const updateContact = (contactId, updatedContact, agendaSlug) => {
     fetch(`https://playground.4geeks.com/apis/fake/contact/${contactId}`, {

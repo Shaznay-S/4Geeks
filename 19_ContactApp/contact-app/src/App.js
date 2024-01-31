@@ -2,10 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ContactContext from './context/ContactContext';
 import useGlobalState from './store/flux';
-
-// Import your views
 import ContactView from './views/ContactView';
-import AddContactView from './views/AddContactView'; // Assuming you choose to use AddContactView for add/edit
 
 const App = () => {
   const { state, actions } = useGlobalState();
@@ -20,9 +17,7 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<ContactView />} />
-          <Route path="/add" element={<AddContactView />} />
-          {/* If you decide to use AddContactView for editing as well */}
-          <Route path="/edit/:contactId" element={<AddContactView />} />
+          {/* Removed the /add and /edit routes since modals are used within ContactView */}
         </Routes>
       </Router>
     </ContactContext.Provider>
@@ -30,4 +25,3 @@ const App = () => {
 };
 
 export default App;
-

@@ -1,0 +1,33 @@
+.contact-view {
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Spacing between elements */
+}
+
+.current-agenda {
+  font-size: 18px;
+}
+
+.add-contact-button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-contact-button:hover {
+  background-color: #218838;
+}

@@ -1,19 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import ContactContext from '../context/ContactContext';
 import Modal from '../components/Modal';
 import '../styles/Modal.css';
 
-const AddContactView = ({ show, currentAgenda, onClose }) => {
+const EditContactView = ({ show, contactToEdit, onClose }) => {
   const { actions } = useContext(ContactContext);
-  const initialContactState = {
-    full_name: '',
-    email: '',
-    phone: '',
-    address: '',
-    agenda_slug: currentAgenda
-  };
+  const [contact, setContact] = useState(contactToEdit);
 
-  const [contact, setContact] = useState(initialContactState);
+  useEffect(() => {
+    setContact(contactToEdit);
+  }, [contactToEdit]);
 
   const handleChange = (e) => {
     setContact({ ...contact, [e.target.name]: e.target.value });
@@ -21,8 +17,7 @@ const AddContactView = ({ show, currentAgenda, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newContact = { ...contact, agenda_slug: currentAgenda };
-    actions.addContact(newContact);
+    actions.updateContact(contact.id, contact);
     onClose();
   };
 
@@ -30,9 +25,9 @@ const AddContactView = ({ show, currentAgenda, onClose }) => {
 
   return (
     <Modal show={show} onClose={onClose}>
-      <div className='modal-form'>
-        <form onSubmit={handleSubmit} className="add-contact-form">
-        <label>
+    <div className='modal-form'>
+      <form onSubmit={handleSubmit} className="edit-contact-form">
+      <label>
           Full Name:
           <input
             type="text"
@@ -68,11 +63,11 @@ const AddContactView = ({ show, currentAgenda, onClose }) => {
             onChange={handleChange}
           />
         </label>
-          <button type="submit" className="save-button">Add Contact</button>
-        </form>
+        <button type="submit">Update Contact</button>
+      </form>
       </div>
     </Modal>
   );
 };
 
-export default AddContactView;
+export default EditContactView;

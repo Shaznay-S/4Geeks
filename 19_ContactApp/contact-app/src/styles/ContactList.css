@@ -1,29 +1,6 @@
 .contact-list {
-    margin: 0 auto;
-    max-width: 600px;
-    padding: 20px;
-  }
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 20px;
+}
 
-  .contact-list-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-
-  .contact-list-header h2 {
-    margin: 0;
-  }
-
-  .add-contact-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  .add-contact-button:hover {
-    background-color: #0056b3;
-  }

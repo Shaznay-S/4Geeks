@@ -1,45 +1,42 @@
 .contact-card {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-  }
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
 
-  .contact-card h5 {
-    margin-top: 0;
-  }
+.contact-card h5 {
+  margin-top: 0;
+}
 
-  .contact-card .contact-info {
-    margin: 10px 0;
-  }
+.contact-actions {
+  text-align: right;
+}
 
-  .contact-actions {
-    text-align: right;
-  }
+.contact-actions button {
+  padding: 5px 10px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-  .contact-actions button {
-    padding: 5px 10px;
-    margin-left: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+.edit-button {
+  background-color: #ffc107;
+  color: white;
+}
 
-  .edit-button {
-    background-color: #ffc107;
-    color: white;
-  }
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+}
 
-  .delete-button {
-    background-color: #dc3545;
-    color: white;
-  }
+.edit-button:hover {
+  background-color: #e0a800;
+}
 
-  .edit-button:hover {
-    background-color: #e0a800;
-  }
+.delete-button:hover {
+  background-color: #c82333;
+}
 
-  .delete-button:hover {
-    background-color: #c82333;
-  }

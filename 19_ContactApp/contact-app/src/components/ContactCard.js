@@ -1,24 +1,36 @@
-import React from 'react';
-import '../styles/ContactCard.css'
+import React, { useState } from 'react';
+import EditContactView from '../views/EditContactView';
 
-const ContactCard = (props) => {
-  // extract the contact details you expect to receive
-  const { full_name, email, address, phone, onDelete, onEdit } = props;
+const ContactCard = ({ contact, onDelete, onUpdate }) => {
+  const [showEditModal, setShowEditModal] = useState(false);
+
+  const handleEdit = () => {
+    setShowEditModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowEditModal(false);
+  };
 
   return (
-    <div className="card">
-      <div className="card-body">
-        <h5 className="card-title">{full_name}</h5>
-        <p className="card-text">{email}</p>
-        <p className="card-text">{address}</p>
-        <p className="card-text">{phone}</p>
-        <button onClick={onEdit} className="btn btn-primary">
-          Edit
-        </button>
-        <button onClick={onDelete} className="btn btn-danger">
-          Delete
-        </button>
+    <div className="contact-card">
+      <div className="contact-info">
+        <p>{contact.full_name}</p>
+        <p>{contact.email}</p>
+        <p>{contact.phone}</p>
+        <p>{contact.address}</p>
       </div>
+      <button onClick={handleEdit}>Edit</button>
+      <button onClick={() => onDelete(contact.id)}>Delete</button>
+
+      {showEditModal && (
+        <EditContactView
+          show={showEditModal}
+          contactToEdit={contact}
+          onClose={handleCloseModal}
+          onSave={onUpdate}
+        />
+      )}
     </div>
   );
 };
