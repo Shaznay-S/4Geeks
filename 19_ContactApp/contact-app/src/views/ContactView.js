@@ -2,12 +2,14 @@ import React, { useState, useContext, useEffect } from 'react';
 import ContactContext from '../context/ContactContext';
 import AddContactView from './AddContactView';
 import ContactList from '../components/ContactList';
+import EditContactView from './EditContactView';
 import '../styles/ContactView.css';
 
 const ContactView = () => {
   const { store, actions } = useContext(ContactContext);
   const [showAddContact, setShowAddContact] = useState(false);
   const [currentAgenda, setCurrentAgenda] = useState('personal');
+  const [contactToEdit, setContactToEdit] = useState(null);
 
   useEffect(() => {
     actions.loadContacts(currentAgenda);
@@ -22,12 +24,16 @@ const ContactView = () => {
    //actions.loadContacts(e.target.value); // Load contacts for selected agenda
   };
 
+  const handleEditContact = (contact) => {
+    setContactToEdit(contact);
+  };
+
   return (
     <div className="contact-view">
       <div className="header">
         <div className="current-agenda">
-          Current Agenda: {currentAgenda}
-          <select onChange={handleAgendaChange} value={currentAgenda}>
+          Current Agenda: {' '}
+          <select onChange={handleAgendaChange} value={currentAgenda} className="custom-select">
             <option value="personal">Personal</option>
             <option value="work">Work</option>
           </select>
@@ -45,9 +51,17 @@ const ContactView = () => {
       )}
       <ContactList
         contacts={store.contacts[currentAgenda]}
-        onUpdate={actions.updateContact}
+        //onUpdate={actions.updateContact}
         onDelete={actions.deleteContact}
+        onEdit={handleEditContact}
       />
+      {contactToEdit && (
+        <EditContactView
+          show={true}
+          contactToEdit={contactToEdit}
+          onClose={() => setContactToEdit(null)}
+        />
+      )}
     </div>
   );
 };

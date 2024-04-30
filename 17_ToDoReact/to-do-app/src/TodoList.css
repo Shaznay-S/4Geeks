@@ -1,4 +1,3 @@
-
 .todo-list-container {
   max-width: 400px;
   margin: 30px auto;
@@ -47,7 +46,7 @@
 }
 
 .task-item:hover .delete-icon {
-  visibility: visible; 
+  visibility: visible;
 }
 
 /* Placeholder when there are no tasks */

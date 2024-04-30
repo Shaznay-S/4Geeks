@@ -5,23 +5,32 @@
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+  background-color: black;
+  color: white;
+  padding: 20px
 }
 
 .header-right {
   display: flex;
   align-items: center;
-  gap: 20px; /* Spacing between elements */
+  gap: 20px;
 }
 
 .current-agenda {
-  font-size: 18px;
+  font-size: 25px;
+}
+
+.custom-select {
+  background-color: rgb(225, 151, 151);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 3px;
+  cursor: pointer;
 }
 
 .add-contact-button {
   padding: 10px 20px;
-  background-color: #28a745;
+  background-color: #8e0f0f;
   color: white;
   border: none;
   border-radius: 5px;
@@ -29,5 +38,5 @@
 }
 
 .add-contact-button:hover {
-  background-color: #218838;
+  background-color: #ce5757;
 }

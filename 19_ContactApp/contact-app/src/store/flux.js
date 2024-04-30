@@ -30,8 +30,41 @@ const useGlobalState = () => {
       .catch(error => console.error("Error loading contacts:", error));
   };
 
+  const addContact = (contact, agendaSlug) => {
+    // Log the contact details and agendaSlug being added for debugging purposes
+    console.log('Attempting to add contact:', contact, 'to agenda:', agendaSlug);
+
+    fetch('https://playground.4geeks.com/apis/fake/contact/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...contact, agenda_slug: agendaSlug })
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Network response was not ok: ${response.status}`);
+      }
+      return response.json(); // Parse JSON only if response is ok
+    })
+    .then(addedContact => {
+      console.log('Successfully added contact:', addedContact);
+
+      // Update the state with the newly added contact
+      setState(prevState => ({
+        ...prevState,
+        contacts: {
+          ...prevState.contacts,
+          [agendaSlug]: [...prevState.contacts[agendaSlug], addedContact]
+        }
+      }));
+    })
+    .catch(error => {
+      console.error("Error adding contact:", error.message);
+    });
+};
+
   /*
   const addContact = (contact, agendaSlug) => {
+    console.log('Added contact:', contact, agendaSlug)
     fetch('https://playground.4geeks.com/apis/fake/contact/', {
       method: 'POST',
       headers: {
@@ -44,7 +77,7 @@ const useGlobalState = () => {
     })
     .then(response => response.json())
     .then(addedContact => {
-      console.log('Added contact:', addedContact);
+
       setState(prevState => ({
         ...prevState,
         contacts: {
@@ -55,7 +88,6 @@ const useGlobalState = () => {
     })
     .catch(error => console.error("Error adding contact:", error));
   };
-  */
 
   const addContact = (contact, agendaSlug) => {
     fetch('https://playground.4geeks.com/apis/fake/contact/', {
@@ -77,7 +109,7 @@ const useGlobalState = () => {
       console.error("Error adding contact:", error);
     });
   };
-
+  */
 
   const updateContact = (contactId, updatedContact, agendaSlug) => {
     fetch(`https://playground.4geeks.com/apis/fake/contact/${contactId}`, {
@@ -89,7 +121,6 @@ const useGlobalState = () => {
     })
     .then(response => response.json())
     .then(() => {
-      // Assuming the API returns the updated contact, adjust as needed
       const updatedContacts = state.contacts[agendaSlug].map(contact =>
         contact.id === contactId ? { ...contact, ...updatedContact } : contact
       );

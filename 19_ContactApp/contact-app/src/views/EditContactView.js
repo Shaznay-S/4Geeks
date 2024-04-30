@@ -8,15 +8,41 @@ const EditContactView = ({ show, contactToEdit, onClose }) => {
   const [contact, setContact] = useState(contactToEdit);
 
   useEffect(() => {
+    console.log('Received contact to edit:', contactToEdit);
     setContact(contactToEdit);
   }, [contactToEdit]);
 
   const handleChange = (e) => {
-    setContact({ ...contact, [e.target.name]: e.target.value });
-  };
+    const fieldName = e.target.name;
+    const fieldValue = e.target.value;
 
+    console.log(`Change detected on field ${fieldName} with value: ${fieldValue}`);
+
+    // Update the contact state with the changed field
+    setContact((prevState) => ({
+      ...prevState,
+      [fieldName]: fieldValue,
+    }));
+
+    // Log the updated state after change
+    console.log('Updated state after change:', {
+      ...contact,
+      [fieldName]: fieldValue,
+    });
+  };
+  /*
+  const handleChange = (e) => {
+    console.log(`Change detected on field ${e.target.name} with value: ${e.target.value}`);
+    setContact(prevState => {
+      const updatedState = { ...prevState, [e.target.name]: e.target.value };
+      console.log('Updated state after change:', updatedState);
+      return updatedState;
+    });
+  };
+*/
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('Submitting updated contact:', contact);
     actions.updateContact(contact.id, contact);
     onClose();
   };

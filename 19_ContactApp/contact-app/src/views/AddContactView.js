@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import ContactContext from '../context/ContactContext';
 import Modal from '../components/Modal';
 import '../styles/Modal.css';
@@ -15,14 +15,20 @@ const AddContactView = ({ show, currentAgenda, onClose }) => {
 
   const [contact, setContact] = useState(initialContactState);
 
+  useEffect(() => {
+    setContact(current => ({ ...current, agenda_slug: currentAgenda }));
+    console.log('Updated agenda_slug in state:', currentAgenda);
+  }, [currentAgenda]);
+
   const handleChange = (e) => {
     setContact({ ...contact, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newContact = { ...contact, agenda_slug: currentAgenda };
-    actions.addContact(newContact);
+    const newContact = { ...contact };
+    console.log('Submitting new contact:', newContact, 'to agenda:', currentAgenda);
+    actions.addContact(newContact, currentAgenda);
     onClose();
   };
 

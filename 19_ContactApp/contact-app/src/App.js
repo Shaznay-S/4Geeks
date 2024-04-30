@@ -17,7 +17,6 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<ContactView />} />
-          {/* Removed the /add and /edit routes since modals are used within ContactView */}
         </Routes>
       </Router>
     </ContactContext.Provider>
